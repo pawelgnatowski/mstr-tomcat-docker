@@ -1,0 +1,9 @@
+Non Tomcat native files:
+
+This directory contains your keys and certificates.
+
+`privkey.pem`  : the private key for your certificate.
+`fullchain.pem`: full chain cert.
+`chain.pem`    : using chain instead of full chain will break functionality and some APIs. use full chain cert instead.
+`cert.pem`     : certificate file.
+

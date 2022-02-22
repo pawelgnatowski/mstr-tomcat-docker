@@ -1,0 +1,20 @@
+# deployment specific configuration to override main yml file.
+# rename me and remove '_'
+# add some stuff like mounted volumes etc.
+version: '3.3'
+# use .env file to configure variables
+services:
+  tomcat:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: myCustomImage  
+    container_name: $CONTAINER_NAME
+    ports:
+      - $EXTERNAL_PORT:$TOMCAT_SERVER_PORT
+    # if this is omitted, some functionalities will not work, Like: Library Rest API
+    extra_hosts:
+      - $ISERVER_NAME:$ISERVER_IP
+    environment:
+      - JDK_JAVA_OPTIONS=$JVM_MEMORY
+      - JAVA_OPTS=$JVM_MEMORY
